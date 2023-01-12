@@ -1,1 +1,98 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device.width, intial-scale=0">
+        <title>Calorie Calculator</title>
+    </head>
+    <body>
+        <table>
+            <tr>
+                <td>
+                    <button onclick="toggleInstructions()">Instructions (ON/OFF)</button>
+                </td>
+            </tr>
+            <tr>
+                <td id="instructions">
 
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <img src="mochi-cute.gif">
+                </td>
+            </tr>
+            
+            <tr>
+                <td>
+                    "Calories" Per Package Serving Size 👉 <input id="calories_per_package_serving_size" type="text">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Package "Serving Size" 👉 <input id="package_serving_size" type="text">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Your Desired Serving Size 👉 <input id="your_desired_serving_size" type="text">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button onclick="calculateCaloriesInYourServing()">Calculate</button>
+                    <button onclick="clearAll()">Clear All</button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                Calories in Your Serving 👉 <td id="calories_in_your_serving">
+                </td>
+            </tr>
+            <div id="debug">
+
+            </div>
+        </table>
+        <script>
+            let caloriesPerPackageServingSize = 0
+            let packageServingSize = 0
+            let yourDesiredServingSize = 0
+            let caloriesInYourServing = 0
+            let displayInstrucions = false
+
+            let instructionText = "Use this calculator with a FOOD SCALE and NUTRITION FACTS LABEL. Do not input units like g, oz, or calories. Just use numbers! Be sure that package 'serving size' and desired (measured) 'serving size' share the same units before calculating."
+            function toggleInstructions() {
+                if (displayInstrucions === false) {
+                    document.getElementById("instructions").innerHTML = instructionText
+                    displayInstrucions = true
+                }
+                else {
+                  displayInstrucions = false
+                    document.getElementById("instructions").innerHTML = ""
+                } 
+            }
+            function calculateCaloriesInYourServing() {
+                caloriesPerPackageServingSize = document.getElementById("calories_per_package_serving_size").value
+                //caloriesPerPackageServingSize = parseInt(caloriesPerPackageServingSize)
+                packageServingSize = document.getElementById("package_serving_size").value
+                //packageServingSize = parseInt(packageServingSize)
+                yourDesiredServingSize = document.getElementById("your_desired_serving_size").value
+                //yourDesiredServingSize = parseInt(yourDesiredServingSize)
+                caloriesInYourServing = yourDesiredServingSize * (caloriesPerPackageServingSize/packageServingSize)
+                document.getElementById("calories_in_your_serving").innerHTML = caloriesInYourServing
+                //document.getElementById("debug").innerHTML = caloriesPerPackageServingSize + "" + packageServingSize + "" + yourDesiredServingSize 
+            }  
+            function clearAll() {
+                caloriesPerPackageServingSize = 0
+                packageServingSize = 0
+                yourDesiredServingSize = 0
+                caloriesInYourServing = 0
+                displayInstrucions = false
+                document.getElementById("calories_per_package_serving_size").value = null
+                document.getElementById("package_serving_size").value = null
+                document.getElementById("your_desired_serving_size").value = null
+                document.getElementById("calories_in_your_serving").innerHTML = ""
+            }
+        </script>
+    </body>
+</html>
