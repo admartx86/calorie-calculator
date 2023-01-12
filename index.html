@@ -25,17 +25,17 @@
             
             <tr>
                 <td>
-                    "Calories" Per Package Serving Size 👉 <input id="calories_per_package_serving_size" type="text">
+                    <img src="calories.jpg"> <input id="calories_per_package_serving_size" type="text">
                 </td>
             </tr>
             <tr>
                 <td>
-                    Package "Serving Size" 👉 <input id="package_serving_size" type="text">
+                    <img src="servingsize.jpg"> <input id="package_serving_size" type="text">
                 </td>
             </tr>
             <tr>
                 <td>
-                    Your Desired Serving Size 👉 <input id="your_desired_serving_size" type="text">
+                    Your Desired Serving Size <input id="your_desired_serving_size" type="text">
                 </td>
             </tr>
             <tr>
@@ -45,8 +45,7 @@
                 </td>
             </tr>
             <tr>
-                <td>
-                Calories in Your Serving 👉 <td id="calories_in_your_serving">
+                <td id="calories_in_your_serving">
                 </td>
             </tr>
             <div id="debug">
@@ -79,7 +78,7 @@
                 yourDesiredServingSize = document.getElementById("your_desired_serving_size").value
                 //yourDesiredServingSize = parseInt(yourDesiredServingSize)
                 caloriesInYourServing = yourDesiredServingSize * (caloriesPerPackageServingSize/packageServingSize)
-                document.getElementById("calories_in_your_serving").innerHTML = caloriesInYourServing
+                document.getElementById("calories_in_your_serving").innerHTML = caloriesInYourServing + " calories"
                 //document.getElementById("debug").innerHTML = caloriesPerPackageServingSize + "" + packageServingSize + "" + yourDesiredServingSize 
             }  
             function clearAll() {
